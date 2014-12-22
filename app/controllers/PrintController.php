@@ -6,7 +6,7 @@ class PrintController extends BaseController
     public function create()
     {
         $posts = Post::orderBy('created_at', 'desc')->get();
-        View::make('print.create');
+        return View::make('print.create');
     }
 
     public function store()
