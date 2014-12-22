@@ -41,7 +41,7 @@
 
       <div class="jumbotron">
         <h1>Create message</h1>
-            {{ Form::creat(['route' => 'print.store']) }}
+            {{ Form::open(['route' => 'print.store']) }}
             {{ Form::text('text', null, ['placeholder' => 'message to print...']) }}
             {{ Form::submit('Add to queue') }}
             {{ Form::close() }}
