@@ -49,3 +49,6 @@ Route::get('latest', function(){
 
     return Response::json($to_print);
 });
+
+Route::get('print.create', ['uses' => 'PrintController@create', 'as' => 'print.create']);
+Route::post('print.store', ['uses' => 'PrintController@store', 'as' => 'print.store']);
