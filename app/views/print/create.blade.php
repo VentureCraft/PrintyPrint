@@ -59,7 +59,7 @@
           <h4>Queue</h4>
           {{ Notification::showAll() }}
 
-            <table style="width: 100%">
+            <table style="width: 100%" class="table table-striped">
                 <thead>
                     <tr>
                         <th>Date</th>
