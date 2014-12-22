@@ -42,8 +42,14 @@
       <div class="jumbotron">
         <h1>Create message</h1>
             {{ Form::open(['route' => 'print.store']) }}
-            {{ Form::text('text', null, ['placeholder' => 'message to print...']) }}
-            {{ Form::submit('Add to queue') }}
+            <div class="row">
+            <div class="col-md-12">
+            {{ Form::textarea('text', null, ['placeholder' => 'message to print...', 'rows' => '3', 'class' => 'form-control']) }}
+            </div>
+            <div class="col-md-12">
+            {{ Form::submit('Add to queue', ['class' => 'btn btn-success']) }}
+            </div>
+            </div>
             {{ Form::close() }}
       </div>
 
