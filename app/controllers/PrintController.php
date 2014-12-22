@@ -5,8 +5,7 @@ class PrintController extends BaseController
 
     public function create()
     {
-        $posts = Post::orderBy('printed_at', 'desc')
-            ->orderBy('created_at', 'desc')
+        $posts = Post::orderBy('created_at', 'desc')
             ->get();
 
         return View::make('print.create')
@@ -46,12 +45,12 @@ class PrintController extends BaseController
         $post = Post::find($id);
         if (!$post) {
             Notification::error('Post not found');
-            return Redirect::route('route.create');
+            return Redirect::route('print.create');
         }
         $post->delete();
 
         Notification::success('Deleted');
-        return Redirect::route('route.create');
+        return Redirect::route('print.create');
 
     }
 
