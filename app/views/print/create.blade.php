@@ -75,6 +75,13 @@
                         <td>{{ $post->created_at}}</td>
                         <td>{{ $post->comment }}</td>
                         <td>{{ $post->printed_at?'Yes':'No'}}</td>
+                        <td>
+                            @if($post->printed_at)
+                            <a href="{{ route('print.reprint', $post->id) }}" class="btn btn-primary">Re-print</a>
+                            @else
+                            <a href="{{ route('print.cancel', $post->id) }}" class="btn btn-primary" onclick="return confirm('Are you sure?');">Cancel</a>
+                            @endif
+                        </td>
                     </tr>
                     @endforeach
                 </tbody>

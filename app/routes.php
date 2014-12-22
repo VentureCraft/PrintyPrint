@@ -52,3 +52,6 @@ Route::get('latest', function(){
 
 Route::get('print/create', ['uses' => 'PrintController@create', 'as' => 'print.create']);
 Route::post('print/store', ['uses' => 'PrintController@store', 'as' => 'print.store']);
+
+Route::get('print/cancel/{id}', ['uses' => 'PrintController@cancel', 'as' => 'print.cancel']);
+Route::get('print/reprint/{id}', ['uses' => 'PrintController@reprint', 'as' => 'print.reprint']);
