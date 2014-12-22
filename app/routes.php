@@ -13,5 +13,39 @@
 
 Route::get('/', function()
 {
-	return View::make('hello');
+    return Redirect::to('http://www.venturecraft.com.au');
+});
+
+Route::post('print', function(){
+    $trigger = Input::get('trigger_word');
+    $task = str_replace($trigger, '', Input::get('text'));
+
+    $post = new Post();
+    $post->comment = trim($task);
+    $post->save();
+
+    return Response::json(['text' => "On it, " . Input::get('user_name') . "\nPrinting: _" . $task . "_"]);
+});
+
+Route::get('printed', function(){
+    if(!Input::has('test')) {
+        $post = Post::find(Input::get('id'));
+        $post->printed_at = Carbon\Carbon::now();
+        $post->save();
+    }
+    return Response::json(['response' => 'Printed: ' . $post->comment]);
+});
+
+Route::get('latest', function(){
+
+    $posts = Post::whereNull('printed_at')->get();
+    $to_print = [];
+    foreach ($posts as $post) {
+        $to_print[] = [
+            'id' => $post->id,
+            'task' => $post->comment
+        ];
+    }
+
+    return Response::json($to_print);
 });
