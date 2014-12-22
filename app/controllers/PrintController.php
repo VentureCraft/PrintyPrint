@@ -48,7 +48,7 @@ class PrintController extends BaseController
             Notification::error('Post not found');
             return Redirect::route('route.create');
         }
-        $post->delete()
+        $post->delete();
 
         Notification::success('Deleted');
         return Redirect::route('route.create');
