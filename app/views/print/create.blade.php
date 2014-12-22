@@ -43,12 +43,14 @@
         <h1>Create message</h1>
             {{ Form::open(['route' => 'print.store']) }}
             <div class="row">
-            <div class="col-md-12">
-            {{ Form::textarea('text', null, ['placeholder' => 'message to print...', 'rows' => '3', 'class' => 'form-control']) }}
+                <div class="col-md-12">
+                    {{ Form::textarea('text', null, ['placeholder' => 'message to print...', 'rows' => '3', 'class' => 'form-control']) }}
+                </div>
             </div>
-            <div class="col-md-12">
-            {{ Form::submit('Add to queue', ['class' => 'btn btn-success']) }}
-            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    {{ Form::submit('Add to queue', ['class' => 'btn btn-success']) }}
+                </div>
             </div>
             {{ Form::close() }}
       </div>
@@ -61,9 +63,9 @@
 
             <table style="width: 100%" class="table table-striped">
                 <thead>
-                    <tr>
+                    <tr style="vertical-align: top">
                         <th>Date</th>
-                        <th>Message</th>
+                        <th style="width: 60%">Message</th>
                         <th>Printed</th>
                     </tr>
                 </thead>
